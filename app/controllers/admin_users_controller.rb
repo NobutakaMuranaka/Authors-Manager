@@ -4,7 +4,7 @@ class AdminUsersController < ApplicationController
   end
   
   def new
-    @admin_user = AdminUser.new 
+    @admin_user = AdminUser.new
   end
 
   def show
