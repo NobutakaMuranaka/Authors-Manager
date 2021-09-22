@@ -4,7 +4,7 @@ class AdminUsersController < ApplicationController
   end
   
   def new
-    @admin_user = AdminUser.new
+    @admin_user = AdminUser.new 
   end
 
   def show
@@ -20,12 +20,32 @@ class AdminUsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @admin_user = AdminUser.find(params[:id])
+  end
+  
+  def update
+    @admin_user = AdminUser.find(params[:id])
+    if @admin_user.update_attributes(admin_user_user_params_update)
+      flash[:success] = "プロフィールが更新されました！"
+      redirect_to @admin_user
+    else
+      render 'edit'
+    end
+  end
 
   private
 
+    # ユーザー新規作成時に許可する属性
     def admin_user_params
       params.require(:admin_user).permit(:email, :password,
                                    :password_confirmation)
+    end
+    
+    # プロフィール編集時に許可する属性
+    def admin_user_params_update
+      params.require(:admin_user_param).permit(:email)
     end
 
 end
