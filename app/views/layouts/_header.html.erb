@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top">
+ <div class="container">
+   <nav>
+     <ul class="nav navbar-nav navbar-right">
+       <% if logged_in? %>
+         <li><%= link_to '著者一覧', '#' %></li>
+         <li><%= link_to '書籍一覧', '#' %></li>
+         <li><%= link_to '管理ユーザー一覧', '/admin_users' %></li>
+         <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+       <% else %>
+         <li><%= link_to 'ログイン', login_path %></li>
+       <% end %>
+        
+     </ul>
+   </nav>
+ </div>
+</header>
