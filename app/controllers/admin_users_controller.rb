@@ -37,15 +37,14 @@ class AdminUsersController < ApplicationController
 
   private
 
-  #ユーザー新規作成時に許可する属性
-    def admin_user_params
-      params.require(:admin_user).permit(:email, :password,
+  # ユーザー新規作成時に許可する属性
+  def admin_user_params
+    params.require(:admin_user).permit(:email, :password,
                                    :password_confirmation)
-    end
-  
-  #プロフィール編集時に許可する属性
-    def admin_user_params_update
-      params.require(:admin_user_param).permit(:email)
-    end
+  end
 
+  # プロフィール編集時に許可する属性
+  def admin_user_params_update
+    params.require(:admin_user_param).permit(:email)
+  end
 end

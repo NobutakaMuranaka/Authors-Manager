@@ -6,8 +6,9 @@ class AdminUser < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  
+
   private
+
     def downcase_email
       self.email = email.downcase
     end
