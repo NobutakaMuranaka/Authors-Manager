@@ -1,8 +1,10 @@
 module ApplicationHelper
-  def full_title(page_title = '')  # full_titleメソッドを定義
-    base_title = 'Authors-Manager'
-    if page_title.blank?
-      base_title  # トップページはタイトル「Authors-Managaer」
+  def full_title(page_title = '')
+    base_title = "Authors-Manager"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
     end
   end
 end

@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'byebug', platform: :mri
   gem 'rails-controller-testing'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -59,3 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 
 gem 'rubocop-airbnb'
+
+gem 'faker' 
