@@ -4,6 +4,7 @@
   <ul class="admin_users">
     <% @admin_users.each do |admin_user| %>
       <br>
+      <td><%= admin_user.name%></td>
       <td><%= admin_user.email%></td>
       <br>
     <% end %>
