@@ -46,7 +46,7 @@ class AdminUsersController < ApplicationController
 
   # プロフィール編集時に許可する属性
   def admin_user_params_update
-    params.require(:admin_user_param).permit(:name, :email)
+    params.require(:admin_user_params).permit(:name, :email)
   end
   
 end
