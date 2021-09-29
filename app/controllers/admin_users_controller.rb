@@ -28,7 +28,7 @@ class AdminUsersController < ApplicationController
 
   def update
     @admin_user = AdminUser.find(params[:id])
-    if @admin_user.update_attributes(admin_user_user_params_update)
+    if @admin_user.update_attributes(admin_user_params_update)
       flash[:success] = "プロフィールが更新されました！"
       redirect_to @admin_user
     else

@@ -18,6 +18,20 @@ class AuthorsController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+    if @author.update_attributes(author_params_update)
+      flash[:success] = "プロフィールが更新されました！"
+      redirect_to @author
+    else
+      render 'edit'
+    end
+  end
 
   private
 
