@@ -1,4 +1,5 @@
 class AdminUsersController < ApplicationController
+  
   def index
     @admin_users = AdminUser.all
   end
@@ -47,4 +48,5 @@ class AdminUsersController < ApplicationController
   def admin_user_params_update
     params.require(:admin_user_param).permit(:name, :email)
   end
+  
 end
