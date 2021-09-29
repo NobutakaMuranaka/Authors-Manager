@@ -1,12 +1,27 @@
-<% provide(:title, 'ユーザー一覧') %>
+<% provide(:title, '管理ユーザー一覧') %>
 <div class="container">
-  <h1>ユーザー一覧</h1>
-  <ul class="admin_users">
-    <% @admin_users.each do |admin_user| %>
-      <br>
-      <td><%= admin_user.name%></td>
-      <td><%= admin_user.email%></td>
-      <br>
-    <% end %>
-  </ul>
+  <h1>管理ユーザー一覧</h1>
+  <p><%= link_to '新規追加', new_admin_user_path, class: 'btn btn-primary' %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admin_users.each do |admin_user| %>
+        <tr>
+          <td><%= admin_user.id %></td>
+          <td><%= admin_user.name %></td>
+          <td><%= admin_user.email %></td>
+          <td><%= link_to '詳細', admin_user %></td>
+          <td><%= link_to '編集', edit_admin_user_path(admin_user) %></td>
+          <td><%= link_to '削除', admin_user, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
