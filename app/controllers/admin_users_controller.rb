@@ -1,4 +1,6 @@
 class AdminUsersController < ApplicationController
+  before_action :logged_in_admin_user, only: [:index, :new, :show, :edit, :update]
+  before_action :correct_admin_user,   only: [:edit, :update]
   
   def index
     @admin_users = AdminUser.all
@@ -47,6 +49,15 @@ class AdminUsersController < ApplicationController
   # プロフィール編集時に許可する属性
   def admin_user_params_update
     params.require(:admin_user_params).permit(:name, :email)
+  end
+  
+  # 正しいユーザーかどうか確認
+  def correct_admin_user
+    @admin_user = AdminUser.find(params[:id])
+    if !current_admin_user?(@admin_user)
+      flash[:danger] = "このページへはアクセスできません"
+      redirect_to(root_url)
+    end
   end
   
 end

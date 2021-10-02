@@ -15,6 +15,11 @@ module SessionsHelper
 
   def log_out
     session.delete(:admin_user_id)
-    @current_admin_user = nil
+    @current_admin_user = nils
+  end
+  
+  # 渡されたユーザーがログイン済みユーザーであればtrueを返す
+  def current_admin_user?(admin_user)
+    admin_user == current_admin_user
   end
 end
